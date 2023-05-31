@@ -76,6 +76,11 @@ export class ImageComponent{
     }
   }
 
+  delete(filename: String):void{
+    let res = this.uploadservice.deleteFile(filename);
+    this.fileinfos = this.uploadservice.getFiles();
+  }
+
   ngOnInit(): void {
     this.fileinfos = this.uploadservice.getFiles();
   }

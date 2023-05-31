@@ -29,4 +29,13 @@ export class UploadService {
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/files`);
   }
+
+  deleteFile(filename:String){
+    let url:string=this.baseUrl+'/delete/'+filename;
+    console.log(url);
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "DELETE", url, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
 }
